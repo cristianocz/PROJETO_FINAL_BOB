@@ -1,0 +1,30 @@
+{
+  "name": "dio-explorer-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server para o DIO Explorer — expõe trilhas, promoções e lives da DIO via ferramentas MCP com suporte a HTTP, HTTPS e SSO.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "start:http": "MCP_TRANSPORT=http node build/index.js",
+    "dev": "tsc --watch"
+  },
+  "bin": {
+    "dio-explorer-mcp": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/server": "^1.16.0",
+    "zod": "^3.25.67",
+    "express": "^4.21.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/express": "^5.0.3",
+    "@types/cors": "^2.8.19",
+    "typescript": "^5.8.3"
+  }
+}

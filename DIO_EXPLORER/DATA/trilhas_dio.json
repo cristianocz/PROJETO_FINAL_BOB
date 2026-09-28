@@ -1,0 +1,690 @@
+{
+  "trilhas": [
+    {
+      "id": 1,
+      "nome": "Formação Python Developer",
+      "tecnologia": "Python",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 12,
+      "xp_total": 18500,
+      "badges_disponiveis": ["Python Starter", "Python Pro", "Data Wizard", "Backend Master"],
+      "promocoes": {
+        "desconto_percentual": 30,
+        "validade": "2025-12-31",
+        "cupom": "PYTHON30"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 299.90,
+        "preco_vitalicio": 199.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Python para Iniciantes", "data": "2025-08-10", "horario": "19:00" },
+        { "titulo": "APIs REST com FastAPI", "data": "2025-08-24", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Formação Java Developer",
+      "tecnologia": "Java",
+      "nivel": "Intermediário",
+      "numero_modulos": 14,
+      "xp_total": 22000,
+      "badges_disponiveis": ["Java Rookie", "Spring Hero", "JVM Expert", "Microservices Ninja"],
+      "promocoes": {
+        "desconto_percentual": 25,
+        "validade": "2025-10-31",
+        "cupom": "JAVA25"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 349.90,
+        "preco_vitalicio": 249.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Spring Boot na Prática", "data": "2025-08-15", "horario": "19:30" },
+        { "titulo": "Testes Unitários com JUnit 5", "data": "2025-09-05", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Formação React Developer",
+      "tecnologia": "React",
+      "nivel": "Intermediário",
+      "numero_modulos": 10,
+      "xp_total": 16000,
+      "badges_disponiveis": ["React Starter", "Hooks Master", "Redux Expert", "Frontend Pro"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-11-15",
+        "cupom": "REACT20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 279.90,
+        "preco_vitalicio": 189.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "React Hooks do Zero", "data": "2025-08-20", "horario": "19:00" },
+        { "titulo": "Next.js com React", "data": "2025-09-10", "horario": "20:30" }
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "Formação Node.js Developer",
+      "tecnologia": "Node.js",
+      "nivel": "Intermediário ao Avançado",
+      "numero_modulos": 11,
+      "xp_total": 19500,
+      "badges_disponiveis": ["Node Starter", "Express Expert", "API Builder", "Full Stack Hero"],
+      "promocoes": {
+        "desconto_percentual": 15,
+        "validade": "2025-09-30",
+        "cupom": "NODE15"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 319.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Node.js com TypeScript", "data": "2025-08-18", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Formação Cloud AWS",
+      "tecnologia": "Amazon Web Services",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 16,
+      "xp_total": 28000,
+      "badges_disponiveis": ["Cloud Practitioner", "AWS Solutions Architect", "DevOps on AWS", "Serverless Expert"],
+      "promocoes": {
+        "desconto_percentual": 40,
+        "validade": "2025-12-01",
+        "cupom": "AWS40"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 499.90,
+        "preco_vitalicio": 349.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "AWS Lambda na Prática", "data": "2025-08-22", "horario": "19:00" },
+        { "titulo": "S3 e CloudFront", "data": "2025-09-12", "horario": "20:00" },
+        { "titulo": "EKS e Kubernetes na AWS", "data": "2025-10-01", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "Formação DevOps Engineer",
+      "tecnologia": "DevOps / CI-CD",
+      "nivel": "Avançado",
+      "numero_modulos": 13,
+      "xp_total": 24000,
+      "badges_disponiveis": ["Pipeline Builder", "Docker Captain", "Kubernetes Master", "DevOps Champion"],
+      "promocoes": {
+        "desconto_percentual": 35,
+        "validade": "2025-11-30",
+        "cupom": "DEVOPS35"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 429.90,
+        "preco_vitalicio": 299.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Docker do Zero ao Deploy", "data": "2025-08-25", "horario": "19:00" },
+        { "titulo": "GitHub Actions na Prática", "data": "2025-09-15", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Formação Machine Learning",
+      "tecnologia": "Python / Scikit-Learn / TensorFlow",
+      "nivel": "Avançado",
+      "numero_modulos": 15,
+      "xp_total": 30000,
+      "badges_disponiveis": ["ML Beginner", "Data Scientist", "Deep Learning Expert", "AI Innovator"],
+      "promocoes": {
+        "desconto_percentual": 50,
+        "validade": "2025-10-15",
+        "cupom": "ML50"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 549.90,
+        "preco_vitalicio": 399.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Introdução ao Machine Learning", "data": "2025-08-28", "horario": "19:00" },
+        { "titulo": "Redes Neurais com TensorFlow", "data": "2025-09-18", "horario": "20:30" },
+        { "titulo": "MLOps na Prática", "data": "2025-10-08", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 8,
+      "nome": "Formação Angular Developer",
+      "tecnologia": "Angular",
+      "nivel": "Intermediário",
+      "numero_modulos": 10,
+      "xp_total": 15500,
+      "badges_disponiveis": ["Angular Starter", "RxJS Hero", "NgRx Expert", "Enterprise Dev"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-09-20",
+        "cupom": "ANG20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 269.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Angular 17 com Signals", "data": "2025-08-30", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 9,
+      "nome": "Formação Data Engineering",
+      "tecnologia": "Apache Spark / Kafka / Databricks",
+      "nivel": "Avançado",
+      "numero_modulos": 14,
+      "xp_total": 26500,
+      "badges_disponiveis": ["Data Engineer Jr", "Spark Specialist", "Kafka Expert", "Data Platform Pro"],
+      "promocoes": {
+        "desconto_percentual": 30,
+        "validade": "2025-12-20",
+        "cupom": "DATAENG30"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 479.90,
+        "preco_vitalicio": 329.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Pipeline de Dados com Spark", "data": "2025-09-02", "horario": "20:00" },
+        { "titulo": "Streaming com Apache Kafka", "data": "2025-09-25", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 10,
+      "nome": "Formação Flutter Developer",
+      "tecnologia": "Flutter / Dart",
+      "nivel": "Básico ao Intermediário",
+      "numero_modulos": 9,
+      "xp_total": 14000,
+      "badges_disponiveis": ["Flutter Starter", "Widget Master", "Mobile Dev Pro", "Dart Expert"],
+      "promocoes": {
+        "desconto_percentual": 25,
+        "validade": "2025-11-01",
+        "cupom": "FLUTTER25"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 259.90,
+        "preco_vitalicio": 179.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Flutter do Zero ao App", "data": "2025-09-05", "horario": "19:00" },
+        { "titulo": "State Management com Riverpod", "data": "2025-09-28", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 11,
+      "nome": "Formação Segurança da Informação",
+      "tecnologia": "Cybersecurity / Ethical Hacking",
+      "nivel": "Intermediário ao Avançado",
+      "numero_modulos": 13,
+      "xp_total": 23000,
+      "badges_disponiveis": ["Security Aware", "Ethical Hacker", "Pentest Expert", "Security Champion"],
+      "promocoes": {
+        "desconto_percentual": 35,
+        "validade": "2025-10-31",
+        "cupom": "SEC35"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 399.90,
+        "preco_vitalicio": 279.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "OWASP Top 10 na Prática", "data": "2025-09-08", "horario": "20:00" },
+        { "titulo": "Pentest com Kali Linux", "data": "2025-10-02", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 12,
+      "nome": "Formação SQL e NoSQL",
+      "tecnologia": "SQL / MongoDB / Redis",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 11,
+      "xp_total": 17000,
+      "badges_disponiveis": ["SQL Starter", "Query Master", "NoSQL Explorer", "Database Architect"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-11-20",
+        "cupom": "DB20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 289.90,
+        "preco_vitalicio": 199.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "SQL Avançado com PostgreSQL", "data": "2025-09-10", "horario": "19:00" },
+        { "titulo": "MongoDB na Prática", "data": "2025-10-05", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 13,
+      "nome": "Formação TypeScript Developer",
+      "tecnologia": "TypeScript",
+      "nivel": "Intermediário",
+      "numero_modulos": 8,
+      "xp_total": 13500,
+      "badges_disponiveis": ["TS Starter", "Type Safety Pro", "Generics Master"],
+      "promocoes": {
+        "desconto_percentual": 15,
+        "validade": "2025-09-15",
+        "cupom": "TS15"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 229.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "TypeScript para React Devs", "data": "2025-09-12", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 14,
+      "nome": "Formação Kubernetes e Containers",
+      "tecnologia": "Kubernetes / Docker / Helm",
+      "nivel": "Avançado",
+      "numero_modulos": 12,
+      "xp_total": 22500,
+      "badges_disponiveis": ["Container Novice", "Docker Captain", "K8s Operator", "Cloud Native Dev"],
+      "promocoes": {
+        "desconto_percentual": 40,
+        "validade": "2025-12-15",
+        "cupom": "K8S40"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 419.90,
+        "preco_vitalicio": 299.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Kubernetes do Zero", "data": "2025-09-18", "horario": "20:00" },
+        { "titulo": "Helm Charts na Prática", "data": "2025-10-12", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 15,
+      "nome": "Formação Vue.js Developer",
+      "tecnologia": "Vue.js",
+      "nivel": "Básico ao Intermediário",
+      "numero_modulos": 9,
+      "xp_total": 14500,
+      "badges_disponiveis": ["Vue Starter", "Composition API Pro", "Pinia Master", "Nuxt Explorer"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-10-20",
+        "cupom": "VUE20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 249.90,
+        "preco_vitalicio": 169.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Vue 3 com Composition API", "data": "2025-09-20", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 16,
+      "nome": "Formação Go Developer",
+      "tecnologia": "Go (Golang)",
+      "nivel": "Intermediário ao Avançado",
+      "numero_modulos": 11,
+      "xp_total": 20000,
+      "badges_disponiveis": ["Gopher Starter", "Concurrency Expert", "Go API Builder", "Go Champion"],
+      "promocoes": {
+        "desconto_percentual": 30,
+        "validade": "2025-11-10",
+        "cupom": "GO30"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 339.90,
+        "preco_vitalicio": 229.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Go para Desenvolvedores Backend", "data": "2025-09-22", "horario": "20:00" },
+        { "titulo": "Concorrência em Go", "data": "2025-10-15", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 17,
+      "nome": "Formação Blockchain Developer",
+      "tecnologia": "Solidity / Ethereum / Web3",
+      "nivel": "Avançado",
+      "numero_modulos": 13,
+      "xp_total": 27000,
+      "badges_disponiveis": ["Blockchain Aware", "Smart Contract Dev", "DeFi Explorer", "Web3 Pioneer"],
+      "promocoes": {
+        "desconto_percentual": 45,
+        "validade": "2025-12-31",
+        "cupom": "WEB345"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 529.90,
+        "preco_vitalicio": 379.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Smart Contracts com Solidity", "data": "2025-09-25", "horario": "20:00" },
+        { "titulo": "DApps com React e Ethers.js", "data": "2025-10-18", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 18,
+      "nome": "Formação Power BI e Analytics",
+      "tecnologia": "Power BI / DAX / Excel",
+      "nivel": "Básico ao Intermediário",
+      "numero_modulos": 8,
+      "xp_total": 13000,
+      "badges_disponiveis": ["Analytics Starter", "Dashboard Pro", "DAX Expert", "BI Champion"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-10-25",
+        "cupom": "BI20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 219.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Power BI do Zero ao Avançado", "data": "2025-09-28", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 19,
+      "nome": "Formação .NET Developer",
+      "tecnologia": ".NET / C#",
+      "nivel": "Intermediário ao Avançado",
+      "numero_modulos": 14,
+      "xp_total": 23500,
+      "badges_disponiveis": ["C# Starter", ".NET Core Pro", "ASP.NET Expert", "Enterprise Dev"],
+      "promocoes": {
+        "desconto_percentual": 25,
+        "validade": "2025-11-05",
+        "cupom": "DOTNET25"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 379.90,
+        "preco_vitalicio": 269.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "ASP.NET Core com Clean Architecture", "data": "2025-10-01", "horario": "20:00" },
+        { "titulo": "Blazor na Prática", "data": "2025-10-22", "horario": "19:30" }
+      ]
+    },
+    {
+      "id": 20,
+      "nome": "Formação iOS Developer (Swift)",
+      "tecnologia": "Swift / SwiftUI / Xcode",
+      "nivel": "Intermediário",
+      "numero_modulos": 10,
+      "xp_total": 18000,
+      "badges_disponiveis": ["Swift Starter", "SwiftUI Pro", "iOS Developer", "App Store Ready"],
+      "promocoes": {
+        "desconto_percentual": 30,
+        "validade": "2025-11-15",
+        "cupom": "SWIFT30"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 359.90,
+        "preco_vitalicio": 249.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "SwiftUI do Zero", "data": "2025-10-05", "horario": "19:00" },
+        { "titulo": "Core Data com SwiftUI", "data": "2025-10-28", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 21,
+      "nome": "Formação Android Developer (Kotlin)",
+      "tecnologia": "Kotlin / Android Studio / Jetpack",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 12,
+      "xp_total": 20500,
+      "badges_disponiveis": ["Android Starter", "Kotlin Pro", "Jetpack Compose Dev", "Google Play Ready"],
+      "promocoes": {
+        "desconto_percentual": 30,
+        "validade": "2025-12-10",
+        "cupom": "KOTLIN30"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 369.90,
+        "preco_vitalicio": 259.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Jetpack Compose na Prática", "data": "2025-10-08", "horario": "19:30" },
+        { "titulo": "Arquitetura MVVM com Kotlin", "data": "2025-11-01", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 22,
+      "nome": "Formação Cloud Azure",
+      "tecnologia": "Microsoft Azure",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 15,
+      "xp_total": 27500,
+      "badges_disponiveis": ["Azure Fundamentals", "Azure Developer", "Azure Architect", "Azure DevOps Pro"],
+      "promocoes": {
+        "desconto_percentual": 40,
+        "validade": "2025-12-31",
+        "cupom": "AZURE40"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 489.90,
+        "preco_vitalicio": 339.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Azure Functions Serverless", "data": "2025-10-10", "horario": "19:00" },
+        { "titulo": "Azure DevOps Pipelines", "data": "2025-11-05", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 23,
+      "nome": "Formação Inteligência Artificial Generativa",
+      "tecnologia": "LLMs / LangChain / OpenAI API",
+      "nivel": "Intermediário ao Avançado",
+      "numero_modulos": 10,
+      "xp_total": 25000,
+      "badges_disponiveis": ["GenAI Explorer", "Prompt Engineer", "LangChain Dev", "AI Builder"],
+      "promocoes": {
+        "desconto_percentual": 50,
+        "validade": "2025-12-31",
+        "cupom": "GENAI50"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 459.90,
+        "preco_vitalicio": 319.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Construindo Chatbots com LangChain", "data": "2025-10-15", "horario": "20:00" },
+        { "titulo": "RAG: Retrieval Augmented Generation", "data": "2025-11-08", "horario": "19:00" },
+        { "titulo": "Fine-tuning de LLMs", "data": "2025-12-01", "horario": "20:30" }
+      ]
+    },
+    {
+      "id": 24,
+      "nome": "Formação Rust Developer",
+      "tecnologia": "Rust",
+      "nivel": "Avançado",
+      "numero_modulos": 11,
+      "xp_total": 21000,
+      "badges_disponiveis": ["Rust Rookie", "Ownership Expert", "Systems Programmer", "Rust Champion"],
+      "promocoes": {
+        "desconto_percentual": 25,
+        "validade": "2025-11-25",
+        "cupom": "RUST25"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 389.90,
+        "preco_vitalicio": 279.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Rust para Programadores C++", "data": "2025-10-18", "horario": "19:30" },
+        { "titulo": "WebAssembly com Rust", "data": "2025-11-12", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 25,
+      "nome": "Formação QA e Testes de Software",
+      "tecnologia": "Selenium / Cypress / JMeter",
+      "nivel": "Básico ao Intermediário",
+      "numero_modulos": 9,
+      "xp_total": 15000,
+      "badges_disponiveis": ["QA Starter", "Automation Tester", "Performance Tester", "QA Champion"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-10-30",
+        "cupom": "QA20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 239.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Automação de Testes com Cypress", "data": "2025-10-20", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 26,
+      "nome": "Formação Scrum e Agile",
+      "tecnologia": "Scrum / Kanban / Jira",
+      "nivel": "Básico",
+      "numero_modulos": 6,
+      "xp_total": 9000,
+      "badges_disponiveis": ["Agile Aware", "Scrum Practitioner", "Kanban Expert"],
+      "promocoes": {
+        "desconto_percentual": 15,
+        "validade": "2025-09-30",
+        "cupom": "AGILE15"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 149.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Scrum na Prática com Times de Tech", "data": "2025-10-22", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 27,
+      "nome": "Formação Ruby on Rails Developer",
+      "tecnologia": "Ruby / Ruby on Rails",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 10,
+      "xp_total": 17500,
+      "badges_disponiveis": ["Ruby Starter", "Rails Pro", "MVC Expert", "Ruby Champion"],
+      "promocoes": {
+        "desconto_percentual": 20,
+        "validade": "2025-11-30",
+        "cupom": "RUBY20"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 299.90,
+        "preco_vitalicio": 209.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Ruby on Rails do Zero", "data": "2025-10-25", "horario": "19:30" },
+        { "titulo": "Hotwire e Turbo com Rails", "data": "2025-11-18", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 28,
+      "nome": "Formação Cloud Google GCP",
+      "tecnologia": "Google Cloud Platform",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 14,
+      "xp_total": 26000,
+      "badges_disponiveis": ["GCP Fundamentals", "Cloud Engineer", "GKE Operator", "Big Data on GCP"],
+      "promocoes": {
+        "desconto_percentual": 35,
+        "validade": "2025-12-20",
+        "cupom": "GCP35"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 469.90,
+        "preco_vitalicio": 329.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "BigQuery na Prática", "data": "2025-10-28", "horario": "20:00" },
+        { "titulo": "Cloud Run e Containers no GCP", "data": "2025-11-20", "horario": "19:00" }
+      ]
+    },
+    {
+      "id": 29,
+      "nome": "Formação PHP Developer",
+      "tecnologia": "PHP / Laravel / Livewire",
+      "nivel": "Básico ao Avançado",
+      "numero_modulos": 12,
+      "xp_total": 19000,
+      "badges_disponiveis": ["PHP Starter", "Laravel Pro", "REST API Builder", "PHP Champion"],
+      "promocoes": {
+        "desconto_percentual": 25,
+        "validade": "2025-11-10",
+        "cupom": "PHP25"
+      },
+      "promocao_vitalicia": {
+        "disponivel": true,
+        "preco_original": 319.90,
+        "preco_vitalicio": 219.90
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Laravel 11 do Zero ao Avançado", "data": "2025-11-01", "horario": "19:30" },
+        { "titulo": "APIs RESTful com Laravel Sanctum", "data": "2025-11-25", "horario": "20:00" }
+      ]
+    },
+    {
+      "id": 30,
+      "nome": "Formação Fundamentos de TI",
+      "tecnologia": "Redes / Sistemas Operacionais / Lógica de Programação",
+      "nivel": "Básico",
+      "numero_modulos": 7,
+      "xp_total": 10500,
+      "badges_disponiveis": ["Tech Rookie", "Logic Thinker", "Network Aware", "OS Explorer"],
+      "promocoes": {
+        "desconto_percentual": 10,
+        "validade": "2025-09-25",
+        "cupom": "FUNDTI10"
+      },
+      "promocao_vitalicia": {
+        "disponivel": false,
+        "preco_original": 129.90,
+        "preco_vitalicio": null
+      },
+      "lives_ao_vivo": [
+        { "titulo": "Lógica de Programação para Iniciantes", "data": "2025-11-05", "horario": "19:00" },
+        { "titulo": "Redes e Protocolos do Zero", "data": "2025-11-28", "horario": "19:30" }
+      ]
+    }
+  ]
+}

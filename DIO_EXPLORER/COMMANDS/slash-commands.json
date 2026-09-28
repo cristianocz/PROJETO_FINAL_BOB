@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "description": "Slash commands do DIO Explorer — usados pelo bot e pelo MCP Server para responder usuários",
+  "commands": [
+    {
+      "command": "/trilhas",
+      "aliases": ["/catalogo", "/listar"],
+      "description": "Lista todas as trilhas disponíveis na DIO com resumo de tecnologia, nível e XP.",
+      "parametros": [],
+      "exemplo": "/trilhas",
+      "handler": "trilhas.listAll",
+      "mcp_tool": "list_trilhas"
+    },
+    {
+      "command": "/trilha",
+      "aliases": ["/detalhe", "/info"],
+      "description": "Exibe detalhes completos de uma trilha pelo ID ou nome.",
+      "parametros": [
+        { "nome": "id_ou_nome", "tipo": "string|number", "obrigatorio": true, "descricao": "ID numérico ou nome parcial da trilha" }
+      ],
+      "exemplo": "/trilha 5",
+      "handler": "trilhas.getOne",
+      "mcp_tool": "get_trilha_by_id"
+    },
+    {
+      "command": "/buscar",
+      "aliases": ["/search", "/filtrar"],
+      "description": "Busca trilhas por tecnologia ou nível.",
+      "parametros": [
+        { "nome": "termo", "tipo": "string", "obrigatorio": true, "descricao": "Tecnologia (ex: Python) ou nível (ex: Avançado)" },
+        { "nome": "filtro", "tipo": "string", "obrigatorio": false, "descricao": "'tecnologia' ou 'nivel' — padrão: detecta automaticamente" }
+      ],
+      "exemplo": "/buscar Python",
+      "handler": "trilhas.search",
+      "mcp_tool": "search_trilhas_by_tecnologia"
+    },
+    {
+      "command": "/recomendar",
+      "aliases": ["/quero", "/me-indique"],
+      "description": "Recomenda trilhas com base no perfil do usuário (nível de experiência e área de interesse).",
+      "parametros": [
+        { "nome": "nivel", "tipo": "string", "obrigatorio": true, "descricao": "Seu nível: iniciante, intermediario ou avancado" },
+        { "nome": "area", "tipo": "string", "obrigatorio": false, "descricao": "Área de interesse: web, mobile, cloud, dados, segurança, etc." }
+      ],
+      "exemplo": "/recomendar iniciante web",
+      "handler": "trilhas.recommend",
+      "mcp_tool": "recomendar_trilhas"
+    },
+    {
+      "command": "/desafios",
+      "aliases": ["/challenges", "/projetos"],
+      "description": "Lista os desafios práticos disponíveis em uma trilha.",
+      "parametros": [
+        { "nome": "trilha_id", "tipo": "number", "obrigatorio": true, "descricao": "ID da trilha" }
+      ],
+      "exemplo": "/desafios 1",
+      "handler": "desafios.list",
+      "mcp_tool": "list_desafios"
+    },
+    {
+      "command": "/certificado",
+      "aliases": ["/cert", "/badge"],
+      "description": "Exibe informações sobre o certificado e os badges disponíveis em uma trilha.",
+      "parametros": [
+        { "nome": "trilha_id", "tipo": "number", "obrigatorio": true, "descricao": "ID da trilha" }
+      ],
+      "exemplo": "/certificado 3",
+      "handler": "certificados.info",
+      "mcp_tool": "get_certificado_info"
+    },
+    {
+      "command": "/promocoes",
+      "aliases": ["/promo", "/cupons", "/desconto"],
+      "description": "Lista todas as promoções ativas com cupom, desconto e validade.",
+      "parametros": [],
+      "exemplo": "/promocoes",
+      "handler": "promocoes.listActive",
+      "mcp_tool": "list_promocoes"
+    },
+    {
+      "command": "/lives",
+      "aliases": ["/ao-vivo", "/agenda", "/eventos"],
+      "description": "Mostra as próximas lives ao vivo agendadas, com data e horário.",
+      "parametros": [
+        { "nome": "data_minima", "tipo": "string", "obrigatorio": false, "descricao": "Data mínima no formato YYYY-MM-DD" }
+      ],
+      "exemplo": "/lives",
+      "handler": "lives.listUpcoming",
+      "mcp_tool": "list_lives"
+    },
+    {
+      "command": "/ranking",
+      "aliases": ["/top", "/melhores"],
+      "description": "Exibe o ranking das trilhas com maior XP total.",
+      "parametros": [
+        { "nome": "top", "tipo": "number", "obrigatorio": false, "descricao": "Limitar aos N primeiros (ex: 5). Padrão: 10." }
+      ],
+      "exemplo": "/ranking 5",
+      "handler": "trilhas.ranking",
+      "mcp_tool": "ranking_trilhas_xp"
+    },
+    {
+      "command": "/stats",
+      "aliases": ["/estatisticas", "/resumo"],
+      "description": "Mostra estatísticas gerais do catálogo de trilhas da DIO.",
+      "parametros": [],
+      "exemplo": "/stats",
+      "handler": "trilhas.stats",
+      "mcp_tool": "get_estatisticas"
+    },
+    {
+      "command": "/ajuda",
+      "aliases": ["/help", "/?"],
+      "description": "Exibe a lista de todos os slash commands disponíveis.",
+      "parametros": [],
+      "exemplo": "/ajuda",
+      "handler": "core.help",
+      "mcp_tool": null
+    }
+  ]
+}

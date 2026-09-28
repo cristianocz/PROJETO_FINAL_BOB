@@ -1,0 +1,772 @@
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DIO Explorer — Documentação Completa</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #ffffff;
+    color: #1f2328;
+    padding: 32px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .hero {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 22px; font-weight: 700; color: #1f2328; margin-bottom: 6px; }
+  .hero p { color: #57606a; font-size: 14px; }
+  .badge-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+  .badge {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    color: #3730a3;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .badge.green { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+  .badge.orange { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+  .badge.purple { background: #faf5ff; border-color: #e9d5ff; color: #6b21a8; }
+
+  /* TOC */
+  .toc {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+  }
+  .toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: #57606a; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 4px; }
+  .toc a { color: #3b82d4; text-decoration: none; font-size: 13px; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* Sections */
+  .section { margin-bottom: 40px; }
+  h2.section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1f2328;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+  }
+  h3.sub { font-size: 14px; font-weight: 700; color: #1f2328; margin: 20px 0 8px; }
+  h4.sub2 { font-size: 13px; font-weight: 700; color: #3b82d4; margin: 14px 0 6px; }
+  p { margin-bottom: 10px; color: #1f2328; }
+  .muted { color: #57606a; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+  th { background: #f7f8fa; text-align: left; padding: 8px 10px; border: 1px solid #e5e7eb; font-weight: 600; color: #57606a; }
+  td { padding: 7px 10px; border: 1px solid #e5e7eb; vertical-align: top; }
+  tr:hover td { background: #fafafa; }
+
+  /* Code blocks */
+  pre {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 12.5px;
+    overflow-x: auto;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  code {
+    font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+    font-size: 12px;
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: #b5179e;
+  }
+  pre code { background: none; border: none; padding: 0; color: #1f2328; }
+
+  /* Info boxes */
+  .info-box {
+    border-left: 4px solid #3b82d4;
+    background: #eff6ff;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .info-box.tip { border-color: #16a34a; background: #f0fdf4; }
+  .info-box.warn { border-color: #d97706; background: #fffbeb; }
+  .info-box.insight { border-color: #7c5cd8; background: #faf5ff; }
+  .info-box strong { display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .info-box.tip strong { color: #166534; }
+  .info-box.warn strong { color: #92400e; }
+  .info-box.insight strong { color: #6b21a8; }
+
+  /* Command cards */
+  .cmd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .cmd-card {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .cmd-card .cmd-name { font-family: monospace; font-size: 13px; font-weight: 700; color: #3b82d4; }
+  .cmd-card .cmd-desc { font-size: 12px; color: #57606a; margin-top: 3px; }
+  .cmd-card .cmd-ex { font-family: monospace; font-size: 11px; color: #7c5cd8; margin-top: 6px; background: #fff; border: 1px solid #e5e7eb; padding: 3px 7px; border-radius: 3px; display: inline-block; }
+
+  /* Arch diagram */
+  .arch {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    margin: 18px 0;
+    font-size: 12px;
+  }
+  .arch-box {
+    flex: 1;
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+  .arch-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: #57606a;
+    font-size: 18px;
+  }
+  .arch-box .arch-title { font-weight: 700; margin-bottom: 4px; color: #1f2328; }
+  .arch-box .arch-sub { color: #57606a; font-size: 11px; }
+
+  /* Prompt blocks */
+  .prompt-block {
+    border: 1px solid #c7d2fe;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .prompt-header {
+    background: #eef2ff;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #3730a3;
+    border-bottom: 1px solid #c7d2fe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .prompt-file { font-family: monospace; font-size: 11px; color: #7c5cd8; }
+  .prompt-body { padding: 12px 14px; background: #fff; font-size: 12.5px; color: #1f2328; }
+  .prompt-body ul { padding-left: 18px; }
+  .prompt-body li { margin-bottom: 3px; }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    color: #57606a;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  
+  <div class="hero">
+    <h1>🎓 DIO Explorer — Documentação Completa</h1>
+    <p>Guia de aprendizado para novos profissionais: arquitetura, prompts, comandos, MCP Server e insights.</p>
+    <div class="badge-row">
+      <span class="badge">TypeScript</span>
+      <span class="badge green">MCP Server</span>
+      <span class="badge orange">Slash Commands</span>
+      <span class="badge purple">IBM Bob</span>
+      <span class="badge">Node.js 18+</span>
+    </div>
+  </div>
+
+  
+  <div class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#visao-geral">Visão Geral do Projeto</a></li>
+      <li><a href="#arquitetura">Arquitetura e Estrutura de Arquivos</a></li>
+      <li><a href="#slash-commands-bob">Slash Commands do Bob (.bob/commands)</a></li>
+      <li><a href="#slash-commands-sistema">Slash Commands do Sistema (SRC/router)</a></li>
+      <li><a href="#mcp-server">MCP Server (DIO_EXPLORER/MCP)</a></li>
+      <li><a href="#dados">Modelo de Dados (trilhas_dio.json)</a></li>
+      <li><a href="#como-usar">Como Usar no Dia a Dia</a></li>
+      <li><a href="#prompts">Prompts Utilizados (com Análise)</a></li>
+      <li><a href="#dicas">Dicas e Boas Práticas</a></li>
+      <li><a href="#insights">Insights para Profissionais</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </div>
+
+  
+  <div class="section" id="visao-geral">
+    <h2 class="section-title">1. Visão Geral do Projeto</h2>
+    <p>O <strong>DIO Explorer</strong> é um sistema integrado ao <strong>IBM Bob</strong> que transforma o catálogo de trilhas da DIO (Digital Innovation One) em uma experiência interativa de IA. O usuário conversa naturalmente ou digita slash commands e recebe respostas formatadas em Markdown sobre trilhas, desafios, certificados, promoções e lives.</p>
+
+    <div class="info-box">
+      <strong>Propósito</strong>
+      Tornar o catálogo de 30 trilhas da DIO acessível via linguagem natural e comandos estruturados, integrando a plataforma de IA IBM Bob com dados reais de cursos, XP, badges, promoções e eventos ao vivo.
+    </div>
+
+    <h3 class="sub">O que o projeto entrega</h3>
+    <table>
+      <tr><th>Funcionalidade</th><th>Descrição</th></tr>
+      <tr><td>Exploração de Trilhas</td><td>Lista, busca e detalhes de 30 trilhas com tecnologia, nível, módulos e XP</td></tr>
+      <tr><td>Recomendação Inteligente</td><td>Sugere trilhas por nível do usuário (iniciante/intermediário/avançado) e área de interesse</td></tr>
+      <tr><td>Desafios de Código</td><td>Gera desafios criativos por tecnologia e nível com exemplos reais</td></tr>
+      <tr><td>Certificados</td><td>Emite certificados fictícios comemorativos com dados reais da trilha</td></tr>
+      <tr><td>Promoções e Cupons</td><td>Lista promoções ativas com desconto, validade e cupons</td></tr>
+      <tr><td>Agenda de Lives</td><td>Mostra próximas aulas ao vivo agrupadas por data</td></tr>
+      <tr><td>Ranking e Estatísticas</td><td>XP ranking e métricas gerais do catálogo</td></tr>
+    </table>
+  </div>
+
+  
+  <div class="section" id="arquitetura">
+    <h2 class="section-title">2. Arquitetura e Estrutura de Arquivos</h2>
+
+    <div class="arch">
+      <div class="arch-box">
+        <div class="arch-title">Usuário / Bob</div>
+        <div class="arch-sub">Digita slash commands ou faz perguntas em linguagem natural</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">
+        <div class="arch-title">.bob/commands/</div>
+        <div class="arch-sub">Prompts de sistema para /trilha, /desafio, /certificado</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">
+        <div class="arch-title">MCP Server</div>
+        <div class="arch-sub">12 tools TypeScript via stdio ou HTTP</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-box">
+        <div class="arch-title">DATA/trilhas_dio.json</div>
+        <div class="arch-sub">30 trilhas, badges, promoções, lives</div>
+      </div>
+    </div>
+
+    <h3 class="sub">Mapa de Arquivos</h3>
+    <pre>PROJETO_FINAL_BOB/
+├── .bob/
+│   └── commands/
+│       ├── trilha.md       ← Prompt: exibe plano de estudos de uma trilha
+│       ├── desafio.md      ← Prompt: gera desafio de código criativo
+│       └── certificado.md  ← Prompt: emite certificado de conclusão
+│
+└── DIO_EXPLORER/
+    ├── COMMANDS/
+    │   └── slash-commands.json  ← Definição JSON de todos os comandos
+    ├── DATA/
+    │   └── trilhas_dio.json     ← Fonte de dados: 30 trilhas DIO
+    ├── DOCS/
+    │   └── slash-commands.md    ← Documentação dos comandos
+    ├── MCP/                     ← MCP Server (Node.js/TypeScript)
+    │   ├── src/
+    │   │   ├── index.ts         ← Entry point (stdio ou HTTP)
+    │   │   ├── tools.ts         ← 12 tools MCP registradas
+    │   │   ├── data.ts          ← Leitura e cache do JSON
+    │   │   └── formatters.ts    ← Formatadores Markdown
+    │   ├── package.json
+    │   ├── tsconfig.json
+    │   └── .env.example
+    └── SRC/                     ← Código standalone (sem MCP)
+        ├── router.ts            ← Router de slash commands
+        ├── data.ts              ← Mesma lógica de dados
+        ├── formatters.ts        ← Mesmos formatadores
+        └── tsconfig.json</pre>
+
+    <div class="info-box tip">
+      <strong>Dica de Arquitetura</strong>
+      O projeto tem <strong>dois módulos paralelos</strong>: <code>MCP/src/</code> (compilado e servido via protocolo MCP) e <code>SRC/</code> (código standalone para testes e uso direto). Ambos compartilham a mesma lógica de negócio — a principal diferença é o transporte.
+    </div>
+  </div>
+
+  
+  <div class="section" id="slash-commands-bob">
+    <h2 class="section-title">3. Slash Commands do Bob (.bob/commands)</h2>
+    <p>Estes são os <strong>prompts de sistema</strong> registrados no Bob. Quando o usuário digita um slash command, o Bob injeta o prompt correspondente como contexto e executa a instrução.</p>
+
+    <div class="prompt-block">
+      <div class="prompt-header">
+        /trilha &lt;tecnologia&gt;
+        <span class="prompt-file">.bob/commands/trilha.md</span>
+      </div>
+      <div class="prompt-body">
+        <p><strong>O que faz:</strong> Lê <code>trilhas_dio.json</code>, localiza a trilha por nome ou tecnologia (busca parcial e case-insensitive) e exibe um plano de estudos completo em Markdown.</p>
+        <p><strong>Comportamento de fallback:</strong> Se nenhuma trilha for encontrada, lista todas as tecnologias disponíveis em tabela.</p>
+        <ul>
+          <li>Gera lista de módulos progressivos baseada em <code>numero_modulos</code></li>
+          <li>Exibe badges disponíveis, lives agendadas e promoção ativa</li>
+          <li>Termina com CTA para <code>/desafio</code> e <code>/certificado</code></li>
+        </ul>
+        <p><strong>Exemplo de uso:</strong></p>
+        <code>/trilha Python</code>   <code>/trilha aws</code>   <code>/trilha Machine Learning</code>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">
+        /desafio &lt;tecnologia&gt; &lt;nível&gt;
+        <span class="prompt-file">.bob/commands/desafio.md</span>
+      </div>
+      <div class="prompt-body">
+        <p><strong>O que faz:</strong> Gera um desafio de código criativo e único com contexto de cenário real, requisitos funcionais, restrições técnicas, exemplos de entrada/saída e critérios de avaliação.</p>
+        <p><strong>Tabela de complexidade por nível:</strong></p>
+        <table>
+          <tr><th>Nível</th><th>Complexidade esperada</th></tr>
+          <tr><td>Básico / Iniciante</td><td>Lógica simples, strings/arrays, estruturas de controle</td></tr>
+          <tr><td>Intermediário</td><td>OOP, APIs, estruturas de dados, padrões de projeto básicos</td></tr>
+          <tr><td>Avançado</td><td>Algoritmos O(n log n)+, concorrência, otimização de memória</td></tr>
+        </table>
+        <p><strong>Exemplo de uso:</strong></p>
+        <code>/desafio Python Intermediário</code>   <code>/desafio TypeScript Avançado</code>
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">
+        /certificado &lt;nome&gt; &lt;trilha&gt;
+        <span class="prompt-file">.bob/commands/certificado.md</span>
+      </div>
+      <div class="prompt-body">
+        <p><strong>O que faz:</strong> Gera um certificado comemorativo em Markdown com dados reais da trilha (lidos do JSON), data atual, código único de 12 caracteres e assinaturas fictícias.</p>
+        <ul>
+          <li>Lê o JSON antes de gerar — se encontrar a trilha, usa dados reais; caso contrário, cria valores coerentes</li>
+          <li>Inclui tabela de informações, lista de badges e declaração oficial</li>
+          <li>Data gerada automaticamente no formato DD/MM/AAAA</li>
+        </ul>
+        <p><strong>Exemplo de uso:</strong></p>
+        <code>/certificado João Silva Python</code>   <code>/certificado Maria AWS Developer</code>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section" id="slash-commands-sistema">
+    <h2 class="section-title">4. Slash Commands do Sistema (SRC/router)</h2>
+    <p>Além dos 3 comandos de prompt do Bob, o sistema possui <strong>11 slash commands</strong> implementados no router TypeScript, com aliases e roteamento dinâmico.</p>
+
+    <div class="cmd-grid">
+      <div class="cmd-card">
+        <div class="cmd-name">/trilhas</div>
+        <div class="cmd-desc">Lista todas as 30 trilhas com resumo</div>
+        <div class="cmd-ex">/trilhas · /catalogo · /listar</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/trilha &lt;id|nome&gt;</div>
+        <div class="cmd-desc">Detalhes completos de uma trilha</div>
+        <div class="cmd-ex">/trilha 5 · /info Python</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/buscar &lt;termo&gt;</div>
+        <div class="cmd-desc">Busca por tecnologia ou nível</div>
+        <div class="cmd-ex">/buscar cloud · /buscar Avançado</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/recomendar &lt;nível&gt; [área]</div>
+        <div class="cmd-desc">Recomenda trilhas por perfil</div>
+        <div class="cmd-ex">/recomendar iniciante web</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/desafios &lt;id&gt;</div>
+        <div class="cmd-desc">Lista desafios práticos da trilha</div>
+        <div class="cmd-ex">/desafios 1 · /projetos 7</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/certificado &lt;id&gt;</div>
+        <div class="cmd-desc">Requisitos para obter o certificado</div>
+        <div class="cmd-ex">/certificado 3 · /cert 1</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/promocoes</div>
+        <div class="cmd-desc">Lista promoções ativas com cupons</div>
+        <div class="cmd-ex">/promo · /cupons · /desconto</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/lives [data]</div>
+        <div class="cmd-desc">Próximas aulas ao vivo</div>
+        <div class="cmd-ex">/lives · /agenda · /eventos</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/ranking [top]</div>
+        <div class="cmd-desc">Ranking de trilhas por XP</div>
+        <div class="cmd-ex">/ranking 5 · /top · /melhores</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/stats</div>
+        <div class="cmd-desc">Estatísticas gerais do catálogo</div>
+        <div class="cmd-ex">/stats · /estatisticas · /resumo</div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-name">/ajuda</div>
+        <div class="cmd-desc">Lista todos os comandos</div>
+        <div class="cmd-ex">/ajuda · /help · /?</div>
+      </div>
+    </div>
+
+    <h3 class="sub">Tabela de Áreas para /recomendar</h3>
+    <table>
+      <tr><th>Área</th><th>Tecnologias cobertas</th></tr>
+      <tr><td><code>web</code></td><td>React, Angular, Vue.js, TypeScript, Node.js, PHP, Ruby, .NET</td></tr>
+      <tr><td><code>mobile</code></td><td>Flutter, Swift, Kotlin, Android, iOS</td></tr>
+      <tr><td><code>cloud</code></td><td>AWS, Azure, GCP, DevOps, Kubernetes</td></tr>
+      <tr><td><code>dados</code></td><td>Python, Spark, Databricks, Power BI, SQL, MongoDB</td></tr>
+      <tr><td><code>ia</code></td><td>LLMs, LangChain, TensorFlow, Scikit-Learn, Python</td></tr>
+      <tr><td><code>devops</code></td><td>DevOps, Docker, Kubernetes, CI-CD</td></tr>
+      <tr><td><code>seguranca</code></td><td>Cybersecurity, Ethical Hacking</td></tr>
+      <tr><td><code>blockchain</code></td><td>Solidity, Ethereum, Web3</td></tr>
+      <tr><td><code>backend</code></td><td>Python, Java, Node.js, Go, Rust, PHP, .NET, Ruby</td></tr>
+      <tr><td><code>fundamentos</code></td><td>Redes, Sistemas Operacionais, Lógica, Scrum, Kanban</td></tr>
+    </table>
+  </div>
+
+  
+  <div class="section" id="mcp-server">
+    <h2 class="section-title">5. MCP Server (DIO_EXPLORER/MCP)</h2>
+    <p>O coração técnico do projeto. Implementa o protocolo <strong>Model Context Protocol (MCP)</strong> expondo 12 tools que o IBM Bob usa automaticamente para responder perguntas sobre as trilhas.</p>
+
+    <h3 class="sub">Modos de Transporte</h3>
+    <table>
+      <tr><th>Modo</th><th>Variável</th><th>Quando usar</th></tr>
+      <tr><td><strong>stdio</strong> (padrão)</td><td><code>MCP_TRANSPORT=stdio</code></td><td>Uso local com Bob / Claude Desktop. O Bob spawna o processo diretamente.</td></tr>
+      <tr><td><strong>HTTP</strong></td><td><code>MCP_TRANSPORT=http</code></td><td>Acesso remoto, APIs REST, integração com outros sistemas via HTTPS.</td></tr>
+    </table>
+
+    <h3 class="sub">Instalação e Build</h3>
+    <pre>cd DIO_EXPLORER/MCP
+npm install
+npm run build</pre>
+
+    <h3 class="sub">Registro no Bob (mcp.json)</h3>
+    <pre>{
+  "mcpServers": {
+    "dio-explorer": {
+      "command": "node",
+      "args": ["C:/PROJETOS/PROJETO_FINAL_BOB/DIO_EXPLORER/MCP/build/index.js"]
+    }
+  }
+}</pre>
+
+    <h3 class="sub">Modo HTTP com API Key</h3>
+    <pre># Iniciar o servidor
+MCP_TRANSPORT=http PORT=3100 API_KEY=minha-chave-secreta node build/index.js
+
+# Chamada via curl
+curl -X POST http://localhost:3100/mcp \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer minha-chave-secreta" \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/call",
+    "params": { "name": "list_trilhas", "arguments": {} }
+  }'</pre>
+
+    <h3 class="sub">12 Tools Registradas</h3>
+    <table>
+      <tr><th>Tool MCP</th><th>Slash Command</th><th>Parâmetros</th></tr>
+      <tr><td><code>list_trilhas</code></td><td>/trilhas</td><td>—</td></tr>
+      <tr><td><code>get_trilha</code></td><td>/trilha</td><td>id_ou_nome (string|number)</td></tr>
+      <tr><td><code>search_trilhas_by_tecnologia</code></td><td>/buscar</td><td>tecnologia (string)</td></tr>
+      <tr><td><code>search_trilhas_by_nivel</code></td><td>/buscar</td><td>nivel (string)</td></tr>
+      <tr><td><code>recomendar_trilhas</code></td><td>/recomendar</td><td>nivel (enum), area? (string)</td></tr>
+      <tr><td><code>list_desafios</code></td><td>/desafios</td><td>trilha_id (number)</td></tr>
+      <tr><td><code>get_certificado_info</code></td><td>/certificado</td><td>trilha_id (number)</td></tr>
+      <tr><td><code>list_promocoes</code></td><td>/promocoes</td><td>—</td></tr>
+      <tr><td><code>list_lives</code></td><td>/lives</td><td>data_minima? (YYYY-MM-DD)</td></tr>
+      <tr><td><code>ranking_trilhas_xp</code></td><td>/ranking</td><td>top? (number)</td></tr>
+      <tr><td><code>get_estatisticas</code></td><td>/stats</td><td>—</td></tr>
+      <tr><td><code>executar_slash_command</code></td><td>qualquer</td><td>comando (string completa)</td></tr>
+    </table>
+
+    <h3 class="sub">Variáveis de Ambiente</h3>
+    <table>
+      <tr><th>Variável</th><th>Padrão</th><th>Descrição</th></tr>
+      <tr><td><code>MCP_TRANSPORT</code></td><td>stdio</td><td>stdio ou http</td></tr>
+      <tr><td><code>PORT</code></td><td>3100</td><td>Porta do servidor HTTP</td></tr>
+      <tr><td><code>HOST</code></td><td>0.0.0.0</td><td>Endereço de bind</td></tr>
+      <tr><td><code>API_KEY</code></td><td>(vazio)</td><td>Chave Bearer; vazio = sem auth</td></tr>
+      <tr><td><code>CORS_ORIGINS</code></td><td>*</td><td>Origens CORS permitidas (CSV)</td></tr>
+    </table>
+
+    <h3 class="sub">Endpoints HTTP</h3>
+    <table>
+      <tr><th>Método</th><th>Path</th><th>Descrição</th></tr>
+      <tr><td>GET</td><td>/health</td><td>Health-check (sem auth)</td></tr>
+      <tr><td>GET</td><td>/mcp</td><td>Discovery / capacidades do servidor</td></tr>
+      <tr><td>POST</td><td>/mcp</td><td>Endpoint JSON-RPC 2.0 (protocolo MCP)</td></tr>
+    </table>
+  </div>
+
+  
+  <div class="section" id="dados">
+    <h2 class="section-title">6. Modelo de Dados (trilhas_dio.json)</h2>
+    <p>Arquivo único com <strong>30 trilhas</strong> — fonte de verdade de todo o sistema.</p>
+
+    <h3 class="sub">Estrutura de uma Trilha</h3>
+    <pre>{
+  "id": 1,
+  "nome": "Formação Python Developer",
+  "tecnologia": "Python",
+  "nivel": "Básico ao Avançado",
+  "numero_modulos": 12,
+  "xp_total": 18500,
+  "badges_disponiveis": ["Python Starter", "Python Pro", "Python Expert", "Python Master"],
+  "promocoes": {
+    "desconto_percentual": 30,
+    "validade": "2025-09-30",
+    "cupom": "PYTHON30"
+  },
+  "promocao_vitalicia": {
+    "disponivel": true,
+    "preco_original": 549.90,
+    "preco_vitalicio": 399.90
+  },
+  "lives_ao_vivo": [
+    { "titulo": "Python para Iniciantes", "data": "2025-08-10", "horario": "19:00" }
+  ]
+}</pre>
+
+    <h3 class="sub">Campos Principais</h3>
+    <table>
+      <tr><th>Campo</th><th>Tipo</th><th>Usado em</th></tr>
+      <tr><td>id, nome, tecnologia, nivel</td><td>string/number</td><td>Busca, listagem, filtros</td></tr>
+      <tr><td>numero_modulos, xp_total</td><td>number</td><td>Ranking, estatísticas, certificados</td></tr>
+      <tr><td>badges_disponiveis</td><td>string[]</td><td>Desafios, certificados</td></tr>
+      <tr><td>promocoes</td><td>object</td><td>/promocoes — desconto, validade, cupom</td></tr>
+      <tr><td>promocao_vitalicia</td><td>object</td><td>/trilha — oferta lifetime</td></tr>
+      <tr><td>lives_ao_vivo</td><td>array</td><td>/lives — agenda de eventos</td></tr>
+    </table>
+  </div>
+
+  
+  <div class="section" id="como-usar">
+    <h2 class="section-title">7. Como Usar no Dia a Dia</h2>
+
+    <h3 class="sub">Fluxo 1: Explorar e escolher uma trilha</h3>
+    <pre># 1. Ver todas as trilhas disponíveis
+/trilhas
+
+# 2. Buscar por tecnologia
+/buscar React
+
+# 3. Ver detalhes de uma trilha específica
+/trilha 3
+
+# 4. Ver recomendações para seu perfil
+/recomendar intermediario web</pre>
+
+    <h3 class="sub">Fluxo 2: Praticar com desafios</h3>
+    <pre># Ver desafios práticos de uma trilha
+/desafios 1
+
+# Gerar um desafio de código criativo (prompt do Bob)
+/desafio TypeScript Avançado
+
+# Ver o que é necessário para o certificado
+/certificado 1</pre>
+
+    <h3 class="sub">Fluxo 3: Aproveitar promoções e lives</h3>
+    <pre># Ver todas as promoções com cupons
+/promocoes
+
+# Ver agenda de lives da semana
+/lives
+
+# Lives a partir de uma data específica
+/lives 2025-09-01</pre>
+
+    <h3 class="sub">Fluxo 4: Estatísticas e ranking</h3>
+    <pre># Estatísticas do catálogo inteiro
+/stats
+
+# Ranking top 5 trilhas por XP
+/ranking 5</pre>
+
+    <div class="info-box tip">
+      <strong>Dica Pro</strong>
+      O Bob entende linguagem natural! Você pode perguntar "Quais trilhas de cloud existem?" e ele usará automaticamente a tool <code>search_trilhas_by_tecnologia</code> sem você precisar digitar o slash command.
+    </div>
+  </div>
+
+  
+  <div class="section" id="prompts">
+    <h2 class="section-title">8. Prompts Utilizados (com Análise)</h2>
+    <p>Cada arquivo <code>.bob/commands/</code> é um prompt de sistema. Abaixo, análise das técnicas usadas em cada um.</p>
+
+    <h3 class="sub">Prompt: /trilha — Plano de Estudos</h3>
+    <table>
+      <tr><th>Técnica de Prompt</th><th>Onde aparece</th></tr>
+      <tr><td><strong>Grounding em dados externos</strong></td><td>"Leia o arquivo <code>DIO_EXPLORER/DATA/trilhas_dio.json</code>"</td></tr>
+      <tr><td><strong>Busca fuzzy e case-insensitive</strong></td><td>"correspondência parcial aceita — 'python' deve encontrar 'Python'"</td></tr>
+      <tr><td><strong>Fallback explícito</strong></td><td>"Se nenhuma trilha for encontrada: liste todas em tabela"</td></tr>
+      <tr><td><strong>Template de saída fechado</strong></td><td>Modelo Markdown com placeholders <code>{nome}</code>, <code>{tecnologia}</code></td></tr>
+      <tr><td><strong>Geração contextual de conteúdo</strong></td><td>"Os títulos devem ser realistas, progressivos e coerentes com a tecnologia"</td></tr>
+      <tr><td><strong>CTA (Call to Action)</strong></td><td>Sugere <code>/desafio</code> e <code>/certificado</code> no final</td></tr>
+    </table>
+
+    <h3 class="sub">Prompt: /desafio — Geração de Desafio</h3>
+    <table>
+      <tr><th>Técnica de Prompt</th><th>Onde aparece</th></tr>
+      <tr><td><strong>Parâmetros nomeados</strong></td><td><code>$1</code> = tecnologia, <code>$2</code> = nível</td></tr>
+      <tr><td><strong>Randomização controlada</strong></td><td>"Escolha aleatoriamente um tema diferente a cada execução"</td></tr>
+      <tr><td><strong>Tabela de rubrica</strong></td><td>Define explicitamente a complexidade esperada por nível</td></tr>
+      <tr><td><strong>Estrutura de saída obrigatória</strong></td><td>7 seções fixas: Descrição, Objetivo, Requisitos, Restrições, Exemplos, Critérios, Dica</td></tr>
+      <tr><td><strong>Exemplos de código inline</strong></td><td>Blocos de código formatados com a sintaxe da linguagem escolhida</td></tr>
+      <tr><td><strong>Anti-spoiler</strong></td><td>"1 dica útil sem revelar a solução"</td></tr>
+    </table>
+
+    <h3 class="sub">Prompt: /certificado — Emissão de Certificado</h3>
+    <table>
+      <tr><th>Técnica de Prompt</th><th>Onde aparece</th></tr>
+      <tr><td><strong>Leitura condicional de dados</strong></td><td>"Se encontrar, use dados reais; se não, gere valores fictícios coerentes"</td></tr>
+      <tr><td><strong>Data dinâmica real</strong></td><td>"Gere a data de emissão com a data atual real no formato DD/MM/AAAA"</td></tr>
+      <tr><td><strong>Código único gerado</strong></td><td>"String alfanumérica única de 12 caracteres em maiúsculas"</td></tr>
+      <tr><td><strong>Resposta exclusiva</strong></td><td>"Responda exclusivamente com o certificado em markdown, sem texto antes ou depois"</td></tr>
+      <tr><td><strong>Arte ASCII no cabeçalho</strong></td><td>Moldura visual com caracteres box-drawing para impacto visual</td></tr>
+      <tr><td><strong>Personagens fictícios consistentes</strong></td><td>Assinaturas sempre iguais: Dra. Ana Beatriz, Eng. Rafael Mendonça, CEO Piero Santoro</td></tr>
+    </table>
+
+    <div class="info-box insight">
+      <strong>Insight sobre Engenharia de Prompts</strong>
+      Os 3 prompts usam a técnica de <strong>"template de saída fechado"</strong>: o modelo de resposta é especificado no prompt como Markdown com placeholders. Isso garante consistência visual e elimina texto extra indesejado. A instrução "sem texto antes ou depois" é uma âncora de controle fundamental.
+    </div>
+  </div>
+
+  
+  <div class="section" id="dicas">
+    <h2 class="section-title">9. Dicas e Boas Práticas</h2>
+
+    <h4 class="sub2">Desenvolvimento</h4>
+    <div class="info-box tip">
+      <strong>Tip 1 — Separação de módulos</strong>
+      O código em <code>SRC/</code> e <code>MCP/src/</code> é intencionalmente duplicado. Isso permite testar a lógica isolada sem o protocolo MCP. Em projetos maiores, extraia para um pacote compartilhado (<code>@dio-explorer/core</code>).
+    </div>
+    <div class="info-box tip">
+      <strong>Tip 2 — Cache do JSON</strong>
+      O arquivo <code>data.ts</code> usa um módulo-level cache (<code>let _cache</code>) que persiste durante toda a vida do processo. É eficiente para stdio, mas em HTTP stateless pode ser um problema se o JSON for atualizado — adicione lógica de invalidação com TTL se necessário.
+    </div>
+    <div class="info-box tip">
+      <strong>Tip 3 — Zod para validação</strong>
+      Todas as tools MCP usam <code>z.object({...})</code> do Zod para validar entrada. Isso garante que o Bob (e outros clientes MCP) recebam erros descritivos se passarem tipos errados, sem precisar de try/catch manual nos parâmetros.
+    </div>
+    <div class="info-box tip">
+      <strong>Tip 4 — Tool genérica como fallback</strong>
+      A tool <code>executar_slash_command</code> aceita qualquer string e roteia internamente. Isso é útil para clientes que preferem passar o comando completo como texto em vez de escolher a tool específica.
+    </div>
+
+    <h4 class="sub2">Prompts</h4>
+    <div class="info-box tip">
+      <strong>Tip 5 — Argumento hint</strong>
+      O frontmatter <code>argument-hint</code> nos arquivos <code>.md</code> instrui o Bob a sugerir o formato correto de argumentos ao autocompletar. Use sempre para comandos com parâmetros.
+    </div>
+    <div class="info-box tip">
+      <strong>Tip 6 — Referências a arquivos no prompt</strong>
+      Quando o prompt diz "leia o arquivo X", o Bob tenta carregar e injetar o conteúdo automaticamente. Mantenha os caminhos relativos ao workspace raiz para evitar problemas de resolução.
+    </div>
+
+    <h4 class="sub2">MCP e Segurança</h4>
+    <div class="info-box warn">
+      <strong>Aviso — API Key em produção</strong>
+      Nunca suba o arquivo <code>.env</code> com <code>API_KEY</code> preenchida para o repositório. Use o <code>.env.example</code> como template e adicione <code>.env</code> ao <code>.gitignore</code>. O Bob suporta <code>${env:NOME_DA_VAR}</code> no mcp.json para carregar secrets do ambiente.
+    </div>
+    <div class="info-box warn">
+      <strong>Aviso — CORS em produção</strong>
+      O padrão <code>CORS_ORIGINS=*</code> é adequado apenas para desenvolvimento. Em produção, defina origens específicas: <code>CORS_ORIGINS=https://meusite.com,https://app.meusite.com</code>
+    </div>
+  </div>
+
+  
+  <div class="section" id="insights">
+    <h2 class="section-title">10. Insights para Profissionais</h2>
+
+    <div class="info-box insight">
+      <strong>Insight 1 — O padrão "dados + prompt + ferramenta"</strong>
+      Este projeto demonstra a arquitetura fundamental de aplicações de IA: um arquivo JSON como fonte de verdade, prompts que instruem o modelo a lê-lo, e tools MCP que fazem a ponte entre o modelo e os dados. Esse padrão escala para bases de dados reais (PostgreSQL, MongoDB) substituindo apenas a camada <code>data.ts</code>.
+    </div>
+
+    <div class="info-box insight">
+      <strong>Insight 2 — MCP como API universal de IA</strong>
+      O protocolo MCP (Model Context Protocol) é o "HTTP das ferramentas de IA". Uma vez que você publica um MCP Server, qualquer cliente compatível (Bob, Claude Desktop, VS Code, etc.) pode usar suas tools sem reescrever integração. É a camada de padronização que o ecossistema de IA precisava.
+    </div>
+
+    <div class="info-box insight">
+      <strong>Insight 3 — Slash commands como UX de IA</strong>
+      Enquanto linguagem natural é poderosa, slash commands oferecem <strong>previsibilidade</strong>: o usuário sabe exatamente o que vai receber. A combinação dos dois (natural + estruturado) é a melhor UX para assistentes de IA produtivos.
+    </div>
+
+    <div class="info-box insight">
+      <strong>Insight 4 — Template de saída como contrato</strong>
+      Definir o formato de saída no prompt (como nos certificados e planos de estudo) é equivalente a um contrato de API: o modelo sabe exatamente o que produzir, e o cliente sabe o que esperar. Isso é crucial para integração com sistemas downstream.
+    </div>
+
+    <div class="info-box insight">
+      <strong>Insight 5 — O .bob/commands/ como "microserviços de prompt"</strong>
+      Cada arquivo <code>.md</code> em <code>.bob/commands/</code> é um prompt isolado, versionável, testável e reutilizável. Tratar prompts como código — com versionamento no Git, revisão em PR e documentação — é uma prática de <strong>MLOps</strong> para projetos com IA.
+    </div>
+
+    <div class="info-box insight">
+      <strong>Insight 6 — TypeScript + Zod = MCP Server robusto</strong>
+      A combinação de TypeScript (tipagem estática) + Zod (validação em runtime) + MCP SDK cria um servidor de tools que é ao mesmo tempo seguro, documentado e extensível. Os tipos TypeScript em <code>data.ts</code> também servem como documentação viva do schema JSON.
+    </div>
+  </div>
+
+  
+  <div class="section" id="faq">
+    <h2 class="section-title">11. FAQ</h2>
+
+    <h4 class="sub2">Como adicionar uma nova trilha ao catálogo?</h4>
+    <p>Edite <code>DIO_EXPLORER/DATA/trilhas_dio.json</code> seguindo o schema existente. Não é necessário recompilar nada — o JSON é lido em tempo de execução. O cache em memória se reinicia junto com o processo.</p>
+
+    <h4 class="sub2">Como criar um novo slash command?</h4>
+    <p>1. Crie um arquivo <code>.bob/commands/meucomando.md</code> com frontmatter <code>description</code> e <code>argument-hint</code>.<br />
+    2. Adicione o handler em <code>SRC/router.ts</code> e <code>MCP/src/tools.ts</code>.<br />
+    3. Registre no <code>COMMANDS/slash-commands.json</code>.</p>
+
+    <h4 class="sub2">Como expor o MCP Server via HTTPS?</h4>
+    <p>Use um proxy reverso (Nginx, Caddy ou Traefik) na frente da porta 3100. Veja o exemplo Nginx no <code>MCP/README.md</code>. Depois registre no Bob com a URL HTTPS no <code>mcp.json</code>.</p>
+
+    <h4 class="sub2">Os certificados são válidos de verdade?</h4>
+    <p>Não — são certificados fictícios e comemorativos criados para fins de aprendizado. Para certificados oficiais DIO, acesse a plataforma em <a href="https://dio.me" target="_blank">dio.me</a>.</p>
+
+    <h4 class="sub2">Qual versão do Node.js é necessária?</h4>
+    <p>Node.js ≥ 18 e npm ≥ 9. O projeto usa ES Modules (<code>"type": "module"</code> no package.json) e imports dinâmicos, que requerem Node 18+.</p>
+
+    <h4 class="sub2">O que é o tool executar_slash_command?</h4>
+    <p>É uma tool "coringa" que aceita qualquer slash command como string (ex: <code>/recomendar iniciante web</code>) e roteia internamente para o handler correto. Útil para clientes que preferem passar comandos como texto em vez de escolher a tool específica.</p>
+  </div>
+
+  <div class="footer">
+    <p>DIO Explorer — Projeto Final IBM Bob · Documentação gerada automaticamente</p>
+    <p style="margin-top:4px">Made with IBM Bob</p>
+  </div>
+
+</div>
+</body>
+</html>
